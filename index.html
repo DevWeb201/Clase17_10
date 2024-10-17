@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <header>
+        <h1>Formulario</h1>
+    </header>
+    <main>
+        <div class="contenedor">
+            <form action="" method="post">
+                <div class="f-nombre">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" placeholder="Escribe tu nombre">
+                </div>
+                <br>
+                <div class="f.apellido">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" name="apellido" placeholder="Escribe tu apellido">
+                </div>
+                <br>
+                <div class="f.email">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" placeholder="Escribe tu apellido">
+                </div>
+                <br>
+                <div class="botones">
+                    <input type="reset" value="Limpiar">
+                    <input type="submit" value="Enviar Datos">
+                </div>
+            </form>
+        </div>
+    </main>
+    <script>
+        const form = document.querySelector('form');
+        const nombre = document.querySelector('input[name="nombre"]');
+        const apellido = document.querySelector('input[name="apellido"]');
+        const email = document.querySelector('input[name="email"]');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            console.log(data);
+            console.log(JSON.stringify(data));
+            alert("Formulario enviado\n" + JSON.stringify(data));
+        });
+
+    </script>
+</body>
+</html>
